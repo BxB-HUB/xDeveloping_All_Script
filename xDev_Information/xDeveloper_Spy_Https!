@@ -1,4 +1,25 @@
+--[[
 
+
+
+
+
+ORIGINAL CREATOR OF SCRIPT: TOPIT BOIT, github.com/topitbopit
+
+IM NOT CREATOR OF THIS SCRIPT, I JUST EDITED SOMETINGS AND I ADDED LIKE +25 WEBSITES, METHODS THAT LOGS YOUR INFORMATION
+
+IM NOT TAKING CREDITS
+
+
+original loadstring for script https://raw.githubusercontent.com/topitbopit/rblx/main/http_spy.lua
+
+
+
+
+
+
+
+]]
 
 if not game:IsLoaded() then game.Loaded:Wait() end
 
@@ -92,7 +113,10 @@ _G.BlockedContent = _G.BlockedContent or {
     userid;
     
 }
-rconsolename("xDeveloper | Tool | Spy Https")
+
+
+
+rconsolename("xDeveloper Community  |  Http Spy | FB : Boom WrkSs")
 
 local function rprint(color, msg) 
     rconsoleprint("@@"..color.."@@")
@@ -102,18 +126,37 @@ end
 -- Title
 do
     rconsoleclear()
-    rprint("BLUE",[[
----------------------------------------------
-   __ __ ______ ______ ___    ____          
-  / // //_  __//_  __// _ \  / __/___  __ __
- / _  /  / /    / /  / ___/ _\ \ / _ \/ // /
-/_//_/  /_/    /_/  /_/    /___// .__/\_, / 
-                               /_/   /___/  
----------------------------------------------
-]])
+    rprint("RED",[[
     
-    rconsoleprint("@@LIGHT_MAGENTA@@")
-    rprint("LIGHT_MAGENTA", "Made by Boom WrkSs - [ ブーム ]#4134  \nUpdated 28/02/2022\n")
+------------------------------------------------------------------------------------------------------------    
+ ___    ___ ________  _______   ___      ___ _______   ___       ________  ________  _______   ________     
+|\  \  /  /|\   ___ \|\  ___ \ |\  \    /  /|\  ___ \ |\  \     |\   __  \|\   __  \|\  ___ \ |\   __  \    
+\ \  \/  / | \  \_|\ \ \   __/|\ \  \  /  / | \   __/|\ \  \    \ \  \|\  \ \  \|\  \ \   __/|\ \  \|\  \   
+ \ \    / / \ \  \ \\ \ \  \_|/_\ \  \/  / / \ \  \_|/_\ \  \    \ \  \\\  \ \   ____\ \  \_|/_\ \   _  _\  
+  /     \/   \ \  \_\\ \ \  \_|\ \ \    / /   \ \  \_|\ \ \  \____\ \  \\\  \ \  \___|\ \  \_|\ \ \  \\  \| 
+ /  /\   \    \ \_______\ \_______\ \__/ /     \ \_______\ \_______\ \_______\ \__\    \ \_______\ \__\\ _\ 
+/__/ /\ __\    \|_______|\|_______|\|__|/       \|_______|\|_______|\|_______|\|__|     \|_______|\|__|\|__|
+|__|/ \|__|                                                                                                 
+                     
+                       __ __ ______ ______ ___    ____          
+                      / // //_  __//_  __// _ \  / __/___  __ __
+                     / _  /  / /    / /  / ___/ _\ \ / _ \/ // /
+                    /_//_/  /_/    /_/  /_/    /___// .__/\_, / 
+                                                   /_/   /___/  
+
+      Credit   >   Boom WrkSs  
+      Updated  >   28/02/2022
+     ________________________________________________________________________________
+    |                                                                               | 
+    | > Facebook Link   https://www.facebook.com/profile.php?id=100069125066175     |
+    |                                                                               |  
+    | > Discord  Link   https://discord.com/users/612489304391811092                |
+    |_______________________________________________________________________________|
+------------------------------------------------------------------------------------------------------------
+                                                                                                            
+]])
+
+
 end
 
 -- Namecall hook
