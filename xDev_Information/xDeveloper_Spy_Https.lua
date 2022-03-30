@@ -27,7 +27,29 @@ if not game:IsLoaded() then game.Loaded:Wait() end
 
 
 -- Set up content variables 
+local function getexploit()
+   local exploit =
+       (syn and not is_sirhurt_closure and not pebc_execute and "Synapse X") or
+       (SENTINEL_LOADED and "Sentinel") or
+       (is_sirhurt_closure and "Sirhurt") or
+       (PROTOSMASHER_LOADED and "ProtoSmasher") or
+       (KRNL_LOADED and "Krnl") or
+       (WRDAPI and "WeAreDevs") or
+       (isvm and "Proxo") or
+       (shadow_env and "Shadow") or
+       (jit and "EasyExploits") or
+       (getreg()['CalamariLuaEnv'] and "Calamari") or
+       (unit and "Unit") or
+       (IS_VIVA_LOADED and "VIVA") or
+       (IS_COCO_LOADED and "Coco") or
+       (IsElectron and "Electron") or
+       (getexecutorname and import and "Scriptware") or
+       nil
 
+   return exploit
+end
+
+local st = getexploit()
 
 local plr = game:GetService("Players").LocalPlayer
 
@@ -128,7 +150,6 @@ do
     rconsoleclear()
     rprint("RED",[[
     
-------------------------------------------------------------------------------------------------------------    
  ___    ___ ________  _______   ___      ___ _______   ___       ________  ________  _______   ________     
 |\  \  /  /|\   ___ \|\  ___ \ |\  \    /  /|\  ___ \ |\  \     |\   __  \|\   __  \|\  ___ \ |\   __  \    
 \ \  \/  / | \  \_|\ \ \   __/|\ \  \  /  / | \   __/|\ \  \    \ \  \|\  \ \  \|\  \ \   __/|\ \  \|\  \   
@@ -152,9 +173,12 @@ do
     |                                                                               |  
     | > Discord  Link   https://discord.com/users/612489304391811092                |
     |_______________________________________________________________________________|
-------------------------------------------------------------------------------------------------------------
-                                                                                                            
+     
+                                                                                              
 ]])
+
+
+ rprint("GREEN","Exploit : "..st)
 
 
 end
