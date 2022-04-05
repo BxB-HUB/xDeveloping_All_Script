@@ -4,9 +4,9 @@ getgenv().ExploitSpecific = "📜"
 
 -- API CALLS
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/library.lua"))()
-getgenv().api = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/api.lua"))()
-local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/bssapi.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Bee%20Swarm%20Simulator/Library_UI"))()
+getgenv().api = loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Bee%20Swarm%20Simulator/API"))()
+local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Bee%20Swarm%20Simulator/BSS_API"))()
 if not isfolder("kocmoc") then makefolder("kocmoc") end
 if not isfolder("kocmoc/premium") then makefolder("kocmoc/premium") end
 if isfile('kocmoc.txt') == false then (syn and syn.request or http_request or request)({ Url = "http://127.0.0.1:6463/rpc?v=1",Method = "POST",Headers = {["Content-Type"] = "application/json",["Origin"] = "https://discord.com"},Body = game:GetService("HttpService"):JSONEncode({cmd = "INVITE_BROWSER",args = {code = "kTNMzbxUuZ"},nonce = game:GetService("HttpService"):GenerateGUID(false)}),writefile('kocmoc.txt', "discord")})end
@@ -30,12 +30,12 @@ hives = game.Workspace.Honeycombs:GetChildren() for i = #hives, 1, -1 do  v = ga
 
 -- Script tables
 for _, v in pairs(game:GetService("CoreGui"):GetDescendants()) do
-    if v:IsA("TextLabel") and string.find(v.Text,"Kocmoc v") then
+    if v:IsA("TextLabel") and string.find(v.Text,"BxB HUB [*] v") then
         v.Parent.Parent:Destroy()
     end
 end
 getgenv().temptable = {
-    version = "3.2.12",
+    version = "3.9.4.9",
     blackfield = "Sunflower Field",
     redfields = {},
     bluefields = {},
@@ -836,7 +836,7 @@ local function fetchBuffTable(stats)
     return stTab
 end
 
-local Config = { WindowName = "Kocmoc v"..temptable.version.." Remastered", Color = Color3.fromRGB(164, 84, 255), Keybind = Enum.KeyCode.Semicolon}
+local Config = { WindowName = "BxB HUB [*] v"..temptable.version.." Community", Color = Color3.fromRGB(164, 84, 255), Keybind = Enum.KeyCode.Semicolon}
 local Window = library:CreateWindow(Config, game:GetService("CoreGui"))
 
 local hometab = Window:CreateTab("Home")
