@@ -1,4 +1,28 @@
 --// Decompiled Code. 
+if not game:IsLoaded() then game.Loaded:Wait() end
+local function getexploit()
+   local exploit =
+       (syn and not is_sirhurt_closure and not pebc_execute and "Synapse X") or
+       (SENTINEL_LOADED and "Sentinel") or
+       (is_sirhurt_closure and "Sirhurt") or
+       (PROTOSMASHER_LOADED and "ProtoSmasher") or
+       (KRNL_LOADED and "Krnl") or
+       (WRDAPI and "WeAreDevs") or
+       (isvm and "Proxo") or
+       (shadow_env and "Shadow") or
+       (jit and "EasyExploits") or
+       (getreg()['CalamariLuaEnv'] and "Calamari") or
+       (unit and "Unit") or
+       (IS_VIVA_LOADED and "VIVA") or
+       (IS_COCO_LOADED and "Coco") or
+       (IsElectron and "Electron") or
+       (getexecutorname and import and "Scriptware") or
+       nil
+
+   return exploit
+end
+
+local st = getexploit()
 
 if game.CoreGui:FindFirstChild("WBlackTrap") then
     game.CoreGui:FindFirstChild("WBlackTrap"):Destroy()
@@ -141,7 +165,7 @@ function WBlacklib:Wellcome()
     end
     spawn(function()
         while task.wait() do
-            leecherfunc:Refresh("") wait(.3) leecherfunc:Refresh("B") wait(.3) leecherfunc:Refresh("Bx") wait(.3) leecherfunc:Refresh("BxB") wait(.3) leecherfunc:Refresh("BxB H") wait(.3) leecherfunc:Refresh("BxB HU") wait(.3) leecherfunc:Refresh("BxB HUB") wait(.3) leecherfunc:Refresh("BxB HU") wait(.3) leecherfunc:Refresh("BxB H") wait(.3) leecherfunc:Refresh("BxB") wait(.3) leecherfunc:Refresh("Bx") wait(.3) leecherfunc:Refresh("B") wait(.3) leecherfunc:Refresh("") wait(.3) wait(.3)
+            leecherfunc:Refresh("") wait(.2) leecherfunc:Refresh("B") wait(.2) leecherfunc:Refresh("Bx") wait(.2) leecherfunc:Refresh("BxB") wait(.2) leecherfunc:Refresh("BxB H") wait(.2) leecherfunc:Refresh("BxB HU") wait(.2) leecherfunc:Refresh("BxB HUB") wait(.2) leecherfunc:Refresh("BxB HUB P") wait(.2) leecherfunc:Refresh("BxB HUB Pr") wait(.2) leecherfunc:Refresh("BxB HUB Pre") wait(.2) leecherfunc:Refresh("BxB HUB Prem") wait(.2) leecherfunc:Refresh("BxB HUB Premi") wait(.2) leecherfunc:Refresh("BxB HUB Premiu") wait(.2) leecherfunc:Refresh("BxB HUB Premium") wait(.6) leecherfunc:Refresh("BxB HUB Premiu") wait(.2) leecherfunc:Refresh("BxB HUB Premi") wait(.2) leecherfunc:Refresh("BxB HUB Prem") wait(.2) leecherfunc:Refresh("BxB HUB Pre") wait(.2) leecherfunc:Refresh("BxB HUB Pr") wait(.2) leecherfunc:Refresh("BxB HUB P") wait(.2) leecherfunc:Refresh("BxB HUB") wait(.2) leecherfunc:Refresh("BxB HU") wait(.2) leecherfunc:Refresh("BxB H") wait(.2) leecherfunc:Refresh("BxB") wait(.2) leecherfunc:Refresh("Bx") wait(.2) leecherfunc:Refresh("B") wait(.2) leecherfunc:Refresh("") wait(.2) wait(.2)
         end
     end)
     
@@ -349,23 +373,19 @@ function WBlacklib:Wellcome()
         LoadingGradient.Parent = LoadingUI
         LoadingGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 80, 80)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 130, 130)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 200, 200))}
         wait(0.15)
-        TextLabel.Text = "Loading"
+        TextLabel.Text = "Wellcome :  "..game.Players.LocalPlayer.Name
+        wait(2.5)
+        LoadingUI:TweenSize(UDim2.new(0, 20, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
         wait(0.15)
-        TextLabel.Text = "Loading."
-        wait(0.15)
-        TextLabel.Text = "Loading.."
-        wait(0.15)
-        TextLabel.Text = "Loading..."
-        LoadingUI:TweenSize(UDim2.new(0, 20, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-        wait(0.15)
-        TextLabel.Text = "Loading"
-        wait(0.15)
-        TextLabel.Text = "Loading."
-        wait(0.15)
-        TextLabel.Text = "Loading.."
-        wait(0.15)
-        TextLabel.Text = "Loading..."
-        LoadingUI:TweenSize(UDim2.new(0, 40, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        TextLabel.Text = "Exploit Check : ."
+        wait(0.3)
+        TextLabel.Text = "Exploit Check : .."
+        wait(0.3)
+        TextLabel.Text = "Exploit Check : ..."
+        wait(0.3)
+        TextLabel.Text = "Exploit Check : "..st
+        wait(2)
+        LoadingUI:TweenSize(UDim2.new(0, 40, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .4, true)
         wait(0.15)
         TextLabel.Text = "Loading"
         wait(0.15)
@@ -482,7 +502,7 @@ function WBlacklib:Wellcome()
 	        loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Phantom%20Forces"))()
 	        elseif game.PlaceId == 286090429 then 
 	        loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Arsenal"))()
-        end
+	        end
             game.CoreGui:FindFirstChild("WBlackTrap"):Destroy()
 	    end
 	    wait(0.15)
@@ -491,5 +511,6 @@ function WBlacklib:Wellcome()
 	    game.CoreGui:FindFirstChild("WBlackTrap"):Destroy()
 	end)
 end
+
 local Windows = WBlacklib:Wellcome()
 return WBlacklib
