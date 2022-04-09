@@ -200,7 +200,7 @@ function WBlacklib:Wellcome()
     TitleBox2.Position = UDim2.new(0, 56, 0, 145)
     TitleBox2.Size = UDim2.new(0, 300, 0, 25)
     TitleBox2.Font = Enum.Font.Code
-    TitleBox2.Text = "| Auto Script Game"
+    TitleBox2.Text = "| Auto Execute [ BxB HUB ]"
     TitleBox2.TextColor3 = Color3.fromRGB(110, 110, 150)
     TitleBox2.TextSize = 15.000
     TitleBox2.TextXAlignment = Enum.TextXAlignment.Left
@@ -404,7 +404,11 @@ function WBlacklib:Wellcome()
         LoadingUI:TweenSize(UDim2.new(0, 150, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
         wait(0.15)
         if game.PlaceId == 6284583030 then 
-	        TextLabel.Text = "Game is Pet Simulator X"
+	        TextLabel.Text = "Pet Simulator X"
+	    elseif game.PlaceId == 292439477 then 
+	        TextLabel.Text = "Phantom Forces"
+	        elseif game.PlaceId == 286090429 then 
+	        TextLabel.Text = "Arsenal"
         end
         wait(2)
         TextLabel.Text = "Loading"
@@ -426,7 +430,7 @@ function WBlacklib:Wellcome()
 	  	    wait(0.15)
 	  	    TextLabel.Text = "Activated Https Spy"
 	  	    wait(1)
-	        -- FUNCTIONS HERE
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Spy_Https.lua"))()
             TextLabel.Text = "Https Spy Succesfully"
             wait(1)
 	  	end
@@ -472,7 +476,13 @@ function WBlacklib:Wellcome()
 	        wait(0.15)
 	        TextLabel.Text = "Waiting Menu."
 	        wait(2)
-            --[ SCRIPT HERE ]----------------------------------------------------------------------
+              if game.PlaceId == 6284583030 then 
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDev_TestForAll_Log/main/BxB_HUB-FREE_Pet_Sim_X"))()
+	    elseif game.PlaceId == 292439477 then 
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Phantom%20Forces"))()
+	        elseif game.PlaceId == 286090429 then 
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Arsenal"))()
+        end
             game.CoreGui:FindFirstChild("WBlackTrap"):Destroy()
 	    end
 	    wait(0.15)
