@@ -1,19 +1,35 @@
 --[[
 
-
-
-
-
 ORIGINAL CREATOR OF SCRIPT: TOPIT BOIT, github.com/topitbopit
 
 IM NOT CREATOR OF THIS SCRIPT, I JUST EDITED SOMETINGS AND I ADDED LIKE +25 WEBSITES, METHODS THAT LOGS YOUR INFORMATION
-
 IM NOT TAKING CREDITS
-
-
 original loadstring for script https://raw.githubusercontent.com/topitbopit/rblx/main/http_spy.lua
 
+-- Default blacklisted domains:
+   -- "discord.com/api/webhooks/",
+   -- "ident.me",
+   -- "ipify.org",
+   -- "dyndns.org",
+   -- "checkip.amazonaws.com",
+   -- "httpbin.org/ip",
+   -- "ifconfig.io",
+   -- "ipaddress.sh"
+   -- "ligma.wtf",
+   -- "library.veryverybored",
+   -- "repl.co",
+   -- "repl.it",
+   -- anything containing "webhook",
+   -- anything containing "000webhost",
+   -- anything containing "freehosting"
+   
 
+-- Default blacklisted content: 
+
+   -- Player name
+   -- Job ID
+   -- Place ID
+   -- Executor name
 
 
 
@@ -69,6 +85,7 @@ local ins = table.insert
 local rem = table.remove
 
 -- Set up blacklisted stuff
+
 _G.BlockedDomains  = _G.BlockedDomains or {
     -- Webhooks
     
@@ -133,50 +150,49 @@ _G.BlockedContent = _G.BlockedContent or {
     executor;
     wwwjobid;
     userid;
-    
+
 }
 
 
 
-rconsolename("xDeveloper Community  |  Http Spy | FB : Boom WrkSs")
+rconsolename("BxB HUB  |  Https Spy | FB : Boom WrkSs")
 
 local function rprint(color, msg) 
+    rconsoleprint("@@"..color.."@@")
+    rconsoleprint(msg)
+end
+local function check(color, msg) 
     rconsoleprint("@@"..color.."@@")
     rconsoleprint(msg)
 end
 
 -- Title
 do
-    rconsoleclear()
-    rprint("RED",[[
-    
- ___    ___ ________  _______   ___      ___ _______   ___       ________  ________  _______   ________     
-|\  \  /  /|\   ___ \|\  ___ \ |\  \    /  /|\  ___ \ |\  \     |\   __  \|\   __  \|\  ___ \ |\   __  \    
-\ \  \/  / | \  \_|\ \ \   __/|\ \  \  /  / | \   __/|\ \  \    \ \  \|\  \ \  \|\  \ \   __/|\ \  \|\  \   
- \ \    / / \ \  \ \\ \ \  \_|/_\ \  \/  / / \ \  \_|/_\ \  \    \ \  \\\  \ \   ____\ \  \_|/_\ \   _  _\  
-  /     \/   \ \  \_\\ \ \  \_|\ \ \    / /   \ \  \_|\ \ \  \____\ \  \\\  \ \  \___|\ \  \_|\ \ \  \\  \| 
- /  /\   \    \ \_______\ \_______\ \__/ /     \ \_______\ \_______\ \_______\ \__\    \ \_______\ \__\\ _\ 
-/__/ /\ __\    \|_______|\|_______|\|__|/       \|_______|\|_______|\|_______|\|__|     \|_______|\|__|\|__|
-|__|/ \|__|                                                                                                 
-                     
-                       __ __ ______ ______ ___    ____          
-                      / // //_  __//_  __// _ \  / __/___  __ __
-                     / _  /  / /    / /  / ___/ _\ \ / _ \/ // /
-                    /_//_/  /_/    /_/  /_/    /___// .__/\_, / 
-                                                   /_/   /___/  
-
-      Credit   >   Boom WrkSs  
-      Updated  >   28/02/2022
-     ________________________________________________________________________________
-    |                                                                               | 
-    | > Facebook Link   https://www.facebook.com/profile.php?id=100069125066175     |
-    |                                                                               |  
-    | > Discord  Link   https://discord.com/users/612489304391811092                |
-    |_______________________________________________________________________________|
-     
-                                                                                              
+     rconsoleclear()
+    rprint("GREEN",[[
+//   ___  ___  _________  _________  ________  ________           ________  ________  ___    ___ 
+//  |\  \|\  \|\___   ___\\___   ___\\   __  \|\   ____\         |\   ____\|\   __  \|\  \  /  /|
+//  \ \  \\\  \|___ \  \_\|___ \  \_\ \  \|\  \ \  \___|_        \ \  \___|\ \  \|\  \ \  \/  / /
+//   \ \   __  \   \ \  \     \ \  \ \ \   ____\ \_____  \        \ \_____  \ \   ____\ \    / / 
+//    \ \  \ \  \   \ \  \     \ \  \ \ \  \___|\|____|\  \        \|____|\  \ \  \___|\/  /  /  
+//     \ \__\ \__\   \ \__\     \ \__\ \ \__\     ____\_\  \         ____\_\  \ \__\ __/  / /    
+//      \|__|\|__|    \|__|      \|__|  \|__|    |\_________\       |\_________\|__||\___/ /     
+//                                               \|_________|       \|_________|    \|___|/      
+//                                                                                               
+// 
+]])  
+rprint("BLUE",[[
+                               -- = [*] +-+-+-+-+-+-+-+-+- [*] = --
+                               -- = [*]                    [*] = --
+                               -- = [*]       CREDIT       [*] = --
+                               -- = [*]      _______       [*] = --
+                               -- = [*]      BxB HUB       [*] = --
+                               -- = [*]  FB : Boom WrkSs   [*] = --
+                               -- = [*]      Https Spy     [*] = --
+                               -- = [*]                    [*] = --
+                               -- = [*] +-+-+-+-+-+-+-+-+- [*] = --     
 ]])
-
+                                                                                         
 
  rprint("GREEN","Exploit : "..st)
 
@@ -688,6 +704,43 @@ do
     end
 end
 
+local commands = {}
+local function addcmd(aliases, func)
+    assert(type(aliases) == "table", "Invalid arg 1 supplied")
+    assert(type(func) == "function", "Invalid arg 2 supplied")
+    commands[aliases] = func
+end
+
+local function handlerequest(request)
+    request = request:lower():split(" ")
+    for i,v in pairs(commands) do
+        if table.find(i, request[1]) then
+            pcall(function() 
+                v((function()
+                    local t = {}
+                    for ii,__ in pairs(request) do
+                        if ii ~= 1 then table.insert(t, 1, request[ii]) end
+                    end
+                    return t;
+                end)()) 
+            end)
+            write("\n")
+            break;
+        end
+    end
+    rprint("WHITE","")
+    local input = rconsoleinput()
+    handlerequest(input)
+end
+
+addcmd({"end"}, function(args)
+rprint("RED","\nClear Console\n")
+rconsoleclear()
+end)
+
 
 -- logs
+
 rprint("LIGHT_BLUE","\n\nLogs:")
+handlerequest("")
+
