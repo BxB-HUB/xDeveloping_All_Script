@@ -1,3 +1,6 @@
+loadstring(game:GetObjects("rbxassetid://9301474240")[1].Source)("BxB Pet_X")
+
+
 -- Pepsi Was Here [Petsi X]
 local petsiversion = "1.0"
 local Library = loadstring(game:GetObjects("rbxassetid://9294705440")[1].Source)("BxB UI Library")
