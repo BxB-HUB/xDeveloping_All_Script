@@ -47,7 +47,26 @@ else
         vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
     end)
 end
-
+Home:Label("                           BxB Best Farm")
+Home:Toggle("Auto Farm Best [ BxB SET ]", false, function(BxB)
+ if BxB == true then
+    _G.PixelVault = true
+    _G.statTrackers = true
+    _G.Triplecoins = true
+    _G.Tripledmg = true
+    _G.RedeemGift = true
+    _G.AutoRewards1 = true
+    _G.AutoInterest = true
+elseif BxB == false then
+    _G.PixelVault = false
+    _G.statTrackers = false
+    _G.Triplecoins = false
+    _G.Tripledmg = false
+    _G.RedeemGift = false
+    _G.AutoRewards1 = false
+    _G.AutoInterest = false
+end
+end)
 
 Home:Button("Credit Team", function()
     Blacklib:Notification("BxB HUB", "• [ ブーム ]#4134")
@@ -1435,10 +1454,18 @@ local Telep = Main_Misc:NewSection("Teleport Page")
 local Remote = Main_Misc:NewSection("Remotes GUIs")
 --------------------------------------------------------------------------------
 --Misc
-local HoverboardsList = {"Original", "VIP", "Sleigh", "Flame", "Rainbow", "Cat", "Bling", "Blue Flying Carpet", "Red Flying Carpet"}
-Mods:Dropdown("Hoverboards Skin", HoverboardsList, function(hoverfunc)
-    _G.Hovers = hoverfunc
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Sky2836/Sanz/main/Hoverboard"))()
+Mods:Button("Hoverboards Skin", function(hoverfunc)
+    local tbl = require(game.ReplicatedStorage.Framework.Modules.Client["4 | Save"]).Get()
+tbl.Hoverboards = {}
+for i,v in pairs(game.ReplicatedStorage.Game.Hoverboards:GetChildren())do
+    table.insert(tbl.Hoverboards, v.Name)
+end
+getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.GUIs.Hoverboards).Update()
+getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.GUIs.Hoverboards).Equip = function(board)
+    tbl.EquippedHoverboard = board
+    getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.GUIs.Hoverboards).Update()
+end
+wait(tbl)
 end)
 
 Mods:Button("Unlock GamePassed", function()
@@ -1631,7 +1658,7 @@ Settings:Toggle("Stat Trackers", false, function(trackerfunc)
     while wait() do
         if _G.statTrackers then
             if not enabledBefore then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Sky2836/Sanz/main/StatTrack"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/xDeveloping_All_Script/main/xDev_Information/Pet%20Simulator%20X/BxB-StatTrack%20%5B%20Fn%20%5D"))()
                 enabledBefore = true
             else
                 menus = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("Main"):WaitForChild("Right")
