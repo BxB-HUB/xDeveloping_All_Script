@@ -1,0 +1,516 @@
+--// Decompiled Code. 
+if not game:IsLoaded() then game.Loaded:Wait() end
+local function getexploit()
+   local exploit =
+       (syn and not is_sirhurt_closure and not pebc_execute and "Synapse X") or
+       (SENTINEL_LOADED and "Sentinel") or
+       (is_sirhurt_closure and "Sirhurt") or
+       (PROTOSMASHER_LOADED and "ProtoSmasher") or
+       (KRNL_LOADED and "Krnl") or
+       (WRDAPI and "WeAreDevs") or
+       (isvm and "Proxo") or
+       (shadow_env and "Shadow") or
+       (jit and "EasyExploits") or
+       (getreg()['CalamariLuaEnv'] and "Calamari") or
+       (unit and "Unit") or
+       (IS_VIVA_LOADED and "VIVA") or
+       (IS_COCO_LOADED and "Coco") or
+       (IsElectron and "Electron") or
+       (getexecutorname and import and "Scriptware") or
+       nil
+
+   return exploit
+end
+
+local st = getexploit()
+
+if game.CoreGui:FindFirstChild("WBlackTrap") then
+    game.CoreGui:FindFirstChild("WBlackTrap"):Destroy()
+end
+
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+
+local WBlacklib = {}
+function WBlacklib:Wellcome()
+    local leecherfunc = {}
+    local WBlackTrap = Instance.new("ScreenGui")
+    local Frame = Instance.new("Frame")
+    local Shadow = Instance.new("ImageLabel")
+    local WindowFrame = Instance.new("Frame")
+    local WindowCorner = Instance.new("UICorner")
+    local BlackImage = Instance.new("ImageLabel")
+    local BlackTitle = Instance.new("TextLabel")
+    local Lines = Instance.new("Frame")
+    local TextLeecher = Instance.new("TextButton")
+    local TextDesc = Instance.new("TextLabel")
+    local Box1 = Instance.new("ImageButton")
+    local TitleBox1 = Instance.new("TextLabel")
+    local Box2 = Instance.new("ImageButton")
+    local TitleBox2 = Instance.new("TextLabel")
+    
+    -- Properties --
+    WBlackTrap.Name = "WBlackTrap"
+    WBlackTrap.Parent = game.CoreGui
+    WBlackTrap.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    
+    Frame.Name = "Frame"
+    Frame.Parent = WBlackTrap
+    Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Frame.BackgroundTransparency = 1.000
+    Frame.Position = UDim2.new(0, 300, 0, 30)
+    Frame.Size = UDim2.new(0, 600, 0, 450)
+    
+    Shadow.Name = "Shadow"
+    Shadow.Parent = Frame
+    Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    Shadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Shadow.BackgroundTransparency = 1.000
+    Shadow.Position = UDim2.new(0, 295, 0, 190)
+    Shadow.Size = UDim2.new(0, 0, 0, 0)
+    Shadow.Image = "http://www.roblox.com/asset/?id=6105530152"
+    Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Shadow.ClipsDescendants = true
+    
+    Shadow:TweenSize(UDim2.new(0, 450, 0, 300), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+    
+    WindowFrame.Name = "WindowFrame"
+    WindowFrame.Parent = Shadow
+    WindowFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    WindowFrame.Position = UDim2.new(0, 22, 0, 22)
+    WindowFrame.BorderSizePixel = 0
+    WindowFrame.Size = UDim2.new(0, 408, 0, 255)
+    WindowFrame.ClipsDescendants = true
+    
+    WindowCorner.Name = "WindowCorner"
+    WindowCorner.Parent = WindowFrame
+    WindowCorner.CornerRadius = UDim.new(0, 5)
+    
+    BlackImage.Name = "BlackImage"
+    BlackImage.Parent = WindowFrame
+    BlackImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    BlackImage.BackgroundTransparency = 1.000
+    BlackImage.Position = UDim2.new(0, 15, 0, 7)
+    BlackImage.Size = UDim2.new(0, 25, 0, 25)
+    BlackImage.Image = "rbxassetid://8666601749"
+    BlackImage.ImageColor3 = Color3.fromRGB(150, 150, 150)
+    
+    BlackTitle.Name = "BlackTitle"
+    BlackTitle.Parent = WindowFrame
+    BlackTitle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    BlackTitle.BackgroundTransparency = 1.000
+    BlackTitle.Position = UDim2.new(0, 45, 0, 7)
+    BlackTitle.Size = UDim2.new(0, 50, 0, 25)
+    BlackTitle.Font = Enum.Font.Code
+    BlackTitle.Text = "| BxB HUB Premium Script!"
+    BlackTitle.TextColor3 = Color3.fromRGB(150, 150, 150)
+    BlackTitle.TextSize = 18.000
+    BlackTitle.TextXAlignment = Enum.TextXAlignment.Left
+    
+    Lines.Name = "Lines"
+    Lines.Parent = WindowFrame
+    Lines.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+    Lines.BorderSizePixel = 0
+    Lines.Position = UDim2.new(0, 15, 0, 40)
+    Lines.Size = UDim2.new(0, 378, 0, 2)
+    
+    TextLeecher.Name = "TextLeecher"
+    TextLeecher.Parent = WindowFrame
+    TextLeecher.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLeecher.BackgroundTransparency = 1.000
+    TextLeecher.Position = UDim2.new(0, 15, 0, 50)
+    TextLeecher.Size = UDim2.new(0, 378, 0, 25)
+    TextLeecher.Font = Enum.Font.Code
+    TextLeecher.Text = ""
+    TextLeecher.TextColor3 = Color3.fromRGB(150, 150, 150)
+    TextLeecher.TextSize = 18.000
+    TextLeecher.TextXAlignment = Enum.TextXAlignment.Center
+    
+    -- Window Script --
+    local gui = Shadow
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+    local function update(input)
+        local delta = input.Position - dragStart
+        gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+            
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            update(input)
+        end
+    end)
+    
+    function leecherfunc:Refresh(text)
+        TextLeecher.Text = text
+    end
+    spawn(function()
+        while task.wait() do
+            leecherfunc:Refresh("") wait(.2) leecherfunc:Refresh("B") wait(.2) leecherfunc:Refresh("Bx") wait(.2) leecherfunc:Refresh("BxB") wait(.2) leecherfunc:Refresh("BxB H") wait(.2) leecherfunc:Refresh("BxB HU") wait(.2) leecherfunc:Refresh("BxB HUB") wait(.2) leecherfunc:Refresh("BxB HUB P") wait(.2) leecherfunc:Refresh("BxB HUB Pr") wait(.2) leecherfunc:Refresh("BxB HUB Pre") wait(.2) leecherfunc:Refresh("BxB HUB Prem") wait(.2) leecherfunc:Refresh("BxB HUB Premi") wait(.2) leecherfunc:Refresh("BxB HUB Premiu") wait(.2) leecherfunc:Refresh("BxB HUB Premium") wait(.6) leecherfunc:Refresh("BxB HUB Premiu") wait(.2) leecherfunc:Refresh("BxB HUB Premi") wait(.2) leecherfunc:Refresh("BxB HUB Prem") wait(.2) leecherfunc:Refresh("BxB HUB Pre") wait(.2) leecherfunc:Refresh("BxB HUB Pr") wait(.2) leecherfunc:Refresh("BxB HUB P") wait(.2) leecherfunc:Refresh("BxB HUB") wait(.2) leecherfunc:Refresh("BxB HU") wait(.2) leecherfunc:Refresh("BxB H") wait(.2) leecherfunc:Refresh("BxB") wait(.2) leecherfunc:Refresh("Bx") wait(.2) leecherfunc:Refresh("B") wait(.2) leecherfunc:Refresh("") wait(.2) wait(.2)
+        end
+    end)
+    
+    TextDesc.Name = "TextDesc"
+    TextDesc.Parent = WindowFrame
+    TextDesc.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextDesc.BackgroundTransparency = 1.000
+    TextDesc.Position = UDim2.new(0, 15, 0, 80)
+    TextDesc.Size = UDim2.new(0, 378, 0, 25)
+    TextDesc.Font = Enum.Font.Code
+    TextDesc.Text = "               Select the Options "
+    TextDesc.TextColor3 = Color3.fromRGB(150, 150, 150)
+    TextDesc.TextSize = 15.000
+    TextDesc.TextXAlignment = Enum.TextXAlignment.Left
+    
+    Box1.Name = "Box1"
+    Box1.Parent = WindowFrame
+    Box1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Box1.BackgroundTransparency = 1.000
+    Box1.Position = UDim2.new(0, 25, 0, 110)
+    Box1.Size = UDim2.new(0, 25, 0, 25)
+    Box1.ZIndex = 2
+    Box1.Image = "rbxassetid://3926311105"
+    Box1.ImageColor3 = Color3.fromRGB(80, 80, 120)
+    Box1.ImageRectOffset = Vector2.new(940, 784)
+    Box1.ImageRectSize = Vector2.new(48, 48)
+    
+    TitleBox1.Name = "TitleBox1"
+    TitleBox1.Parent = WindowFrame
+    TitleBox1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TitleBox1.BackgroundTransparency = 1.000
+    TitleBox1.Position = UDim2.new(0, 56, 0, 110)
+    TitleBox1.Size = UDim2.new(0, 300, 0, 25)
+    TitleBox1.Font = Enum.Font.Code
+    TitleBox1.Text = "| Soon!"
+    TitleBox1.TextColor3 = Color3.fromRGB(110, 110, 150)
+    TitleBox1.TextSize = 15.000
+    TitleBox1.TextXAlignment = Enum.TextXAlignment.Left
+    
+    Box2.Name = "Box2"
+    Box2.Parent = WindowFrame
+    Box2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Box2.BackgroundTransparency = 1.000
+    Box2.Position = UDim2.new(0, 25, 0, 145)
+    Box2.Size = UDim2.new(0, 25, 0, 25)
+    Box2.ZIndex = 2
+    Box2.Image = "rbxassetid://3926311105"
+    Box2.ImageColor3 = Color3.fromRGB(80, 80, 120)
+    Box2.ImageRectOffset = Vector2.new(940, 784)
+    Box2.ImageRectSize = Vector2.new(48, 48)
+    
+    TitleBox2.Name = "TitleBox2"
+    TitleBox2.Parent = WindowFrame
+    TitleBox2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TitleBox2.BackgroundTransparency = 1.000
+    TitleBox2.Position = UDim2.new(0, 56, 0, 145)
+    TitleBox2.Size = UDim2.new(0, 300, 0, 25)
+    TitleBox2.Font = Enum.Font.Code
+    TitleBox2.Text = "| Auto Execute [ BxB HUB ]"
+    TitleBox2.TextColor3 = Color3.fromRGB(110, 110, 150)
+    TitleBox2.TextSize = 15.000
+    TitleBox2.TextXAlignment = Enum.TextXAlignment.Left
+    
+    
+	
+    -- Script --
+    local boxtog1 = false
+    local boxtog2 = false
+    
+    Box1.MouseButton1Click:Connect(function()
+        if boxtog1 then
+            Box1.ImageRectOffset = Vector2.new(940, 784)
+            TweenService:Create(Box1, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {ImageColor3 = Color3.fromRGB(80, 80, 120)}):Play()
+            TweenService:Create(TitleBox1, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(110, 110, 150)}):Play()
+            boxtog1 = false
+            else
+                Box1.ImageRectOffset = Vector2.new(4, 836)
+                TweenService:Create(Box1, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {ImageColor3 = Color3.fromRGB(80, 250, 80)}):Play()
+                TweenService:Create(TitleBox1, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(110, 255, 110)}):Play()
+                boxtog1 = true
+        end
+    end)
+    
+    Box2.MouseButton1Click:Connect(function()
+        if boxtog2 then
+            Box2.ImageRectOffset = Vector2.new(940, 784)
+            TweenService:Create(Box2, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {ImageColor3 = Color3.fromRGB(80, 80, 120)}):Play()
+            TweenService:Create(TitleBox2, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(110, 110, 150)}):Play()
+            boxtog2 = false
+            else
+                Box2.ImageRectOffset = Vector2.new(4, 836)
+                TweenService:Create(Box2, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {ImageColor3 = Color3.fromRGB(80, 250, 80)}):Play()
+                TweenService:Create(TitleBox2, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(110, 255, 110)}):Play()
+                boxtog2 = true
+        end
+    end)
+    
+    local OkLabel = Instance.new("TextLabel")
+    local OkButton = Instance.new("TextButton")
+    local OkButtonCorner = Instance.new("UICorner")
+	
+	OkLabel.Name = "OkLabel"
+    OkLabel.Parent = WindowFrame
+    OkLabel.BackgroundColor3 = Color3.fromRGB(190, 190, 180)
+    OkLabel.BackgroundTransparency = 1.000
+    OkLabel.Position = UDim2.new(0, 15, 0, 180)
+    OkLabel.Size = UDim2.new(0, 378, 0, 30)
+    OkLabel.Font = Enum.Font.Code
+    OkLabel.Text = "Press OK to Activated"
+    OkLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+    OkLabel.TextSize = 16.000
+    OkLabel.TextXAlignment = Enum.TextXAlignment.Center
+    
+    OkButton.Name = "OkButton"
+    OkButton.Parent = WindowFrame
+    OkButton.BackgroundColor3 = Color3.fromRGB(190, 190, 180)
+    OkButton.BackgroundTransparency = 0
+    OkButton.AutoButtonColor = true
+    OkButton.Position = UDim2.new(0, 164, 0, 215)
+    OkButton.Size = UDim2.new(0, 80, 0, 25)
+    OkButton.Font = Enum.Font.GothamBold
+    OkButton.Text = "OK"
+    OkButton.TextColor3 = Color3.fromRGB(30, 30, 30)
+    OkButton.TextSize = 16.000
+    OkButton.TextXAlignment = Enum.TextXAlignment.Center
+    
+    OkButtonCorner.Parent = OkButton
+    OkButtonCorner.CornerRadius = UDim.new(0, 5)
+    
+	OkButton.MouseButton1Click:Connect(function()
+	    Shadow:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+	    wait(1)
+	    for _, black in pairs(Frame:GetChildren()) do
+	        black:Destroy()
+	    end
+        local LoadFrame = Instance.new("Frame")
+        local LoadFrameCorner = Instance.new("UICorner")
+        local TextLabel = Instance.new("TextLabel")
+        local LoadCover = Instance.new("Frame")
+        local UIStroke = Instance.new("UIStroke")
+        local CoverCorner = Instance.new("UICorner")
+        local LoadingUI = Instance.new("Frame")
+        local LoadingCorner = Instance.new("UICorner")
+        local LoadingGradient = Instance.new("UIGradient")
+        
+        -- Prop --
+        LoadFrame.Name = "LoadFrame"
+        LoadFrame.Parent = Frame
+        LoadFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+        LoadFrame.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
+        LoadFrame.BorderSizePixel = 0
+        LoadFrame.Position = UDim2.new(0, 295, 0, 190)
+        LoadFrame.Size = UDim2.new(0, 0, 0, 0)
+        
+        LoadFrame:TweenSize(UDim2.new(0, 251, 0, 80), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        wait(0.3)
+        LoadFrameCorner.Parent = LoadFrame
+        LoadFrameCorner.CornerRadius = UDim.new(0, 10)
+        
+        TextLabel.Name = "TextLabel"
+        TextLabel.Parent = LoadFrame
+        TextLabel.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
+        TextLabel.BackgroundTransparency = 1.000
+        TextLabel.Position = UDim2.new(0, 10, 0, 10)
+        TextLabel.Size = UDim2.new(0, 230, 0, 20)
+        TextLabel.Font = Enum.Font.GothamSemibold
+        TextLabel.Text = "Loading"
+        TextLabel.TextSize = 13.000
+        TextLabel.TextColor3 = Color3.fromRGB(180, 180, 190)
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+        
+        LoadCover.Name = "LoadCover"
+        LoadCover.Parent = LoadFrame
+        LoadCover.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        LoadCover.BackgroundTransparency = 1.000
+        LoadCover.BorderSizePixel = 0
+        LoadCover.Size = UDim2.new(0, 231, 0, 32)
+        LoadCover.Position = UDim2.new(0, 10, 0, 35)
+        
+        UIStroke.Parent = LoadCover
+        UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+        UIStroke.Color = Color3.fromRGB(255, 255, 245)
+        UIStroke.LineJoinMode = Enum.LineJoinMode.Round
+        UIStroke.Thickness = 1
+        UIStroke.Transparency = 0.3
+        UIStroke.Enabled = true
+        UIStroke.Archivable = true
+        
+        CoverCorner.Parent = LoadCover
+        CoverCorner.CornerRadius = UDim.new(0, 6)
+        
+        LoadingUI.Name = "LoadingUI"
+        LoadingUI.Parent = LoadCover
+        LoadingUI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        LoadingUI.BorderSizePixel = 0
+        LoadingUI.Size = UDim2.new(0, 0, 0, 30)
+        LoadingUI.Position = UDim2.new(0, 0, 0, 2)
+        LoadingUI.ClipsDescendants = true
+        wait(1)
+        LoadingUI:TweenSize(UDim2.new(0, 10, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        
+        LoadingCorner.Parent = LoadingUI
+        LoadingCorner.CornerRadius = UDim.new(0, 8)
+        
+        LoadingGradient.Parent = LoadingUI
+        LoadingGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 80, 80)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 130, 130)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 200, 200))}
+        wait(0.15)
+        TextLabel.Text = "Wellcome :  "..game.Players.LocalPlayer.Name
+        wait(2.5)
+        LoadingUI:TweenSize(UDim2.new(0, 20, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+        wait(0.15)
+        TextLabel.Text = "Exploit Check : ."
+        wait(0.3)
+        TextLabel.Text = "Exploit Check : .."
+        wait(0.3)
+        TextLabel.Text = "Exploit Check : ..."
+        wait(0.3)
+        TextLabel.Text = "Exploit Check : "..st
+        wait(2)
+        LoadingUI:TweenSize(UDim2.new(0, 40, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .4, true)
+        wait(0.15)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+        LoadingUI:TweenSize(UDim2.new(0, 70, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        wait(0.15)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+        LoadingUI:TweenSize(UDim2.new(0, 90, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        wait(0.15)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+        LoadingUI:TweenSize(UDim2.new(0, 110, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        wait(0.15)
+        TextLabel.Text = "Check the Game : "
+        wait(0.15)
+        TextLabel.Text = "Check the Game : ."
+        wait(0.15)
+        TextLabel.Text = "Check the Game : .."
+        wait(0.15)
+        TextLabel.Text = "Check the Game : ..."
+        LoadingUI:TweenSize(UDim2.new(0, 150, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        wait(0.15)
+        if game.PlaceId == 6284583030 then 
+	        TextLabel.Text = "Pet Simulator X"
+	    elseif game.PlaceId == 292439477 then 
+	        TextLabel.Text = "Phantom Forces"
+	        elseif game.PlaceId == 286090429 then 
+	        TextLabel.Text = "Arsenal"
+        end
+        wait(2)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+        wait(0.15)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+	  	if boxtog1 then
+	  	    wait(0.15)
+	  	    TextLabel.Text = "Update"
+	  	    wait(1)
+            
+            TextLabel.Text = "Update"
+            wait(1)
+	  	end
+	  	
+        wait(0.15)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+        LoadingUI:TweenSize(UDim2.new(0, 170, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        wait(0.15)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+        LoadingUI:TweenSize(UDim2.new(0, 190, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+        wait(0.15)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+        LoadingUI:TweenSize(UDim2.new(0, 230, 0, 30), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 3.0, true)
+        wait(0.15)
+        TextLabel.Text = "Loading"
+        wait(0.15)
+        TextLabel.Text = "Loading."
+        wait(0.15)
+        TextLabel.Text = "Loading.."
+        wait(0.15)
+        TextLabel.Text = "Loading..."
+        Frame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+        wait(0.15)
+	    if boxtog2 then
+	        wait(0.15)
+	        TextLabel.Text = "Waiting Menu."
+	        wait(2)
+              if game.PlaceId == 6284583030 then 
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/xDeveloping_All_Script/main/BxB_HUB_Script/Pet%20Simulator%20X/Pet%20Simulator%20X%20%5B%20Full%20%5D"))()
+	    elseif game.PlaceId == 292439477 then 
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Phantom%20Forces"))()
+	        elseif game.PlaceId == 286090429 then 
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/xDeveloping/xDeveloping_All_Script/main/xDev_Information/Arsenal"))()
+	        end
+            game.CoreGui:FindFirstChild("WBlackTrap"):Destroy()
+	    end
+	    wait(0.15)
+	    TextLabel.Text = "Thank You for using BxB HUB"
+	    wait(2)
+	    game.CoreGui:FindFirstChild("WBlackTrap"):Destroy()
+	end)
+end
+
+local Windows = WBlacklib:Wellcome()
+return WBlacklib
